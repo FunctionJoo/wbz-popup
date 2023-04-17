@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>팝업 라이브러리</title>
+	<link rel="stylesheet" href="./wbz-popup.css">
+	<script src="./wbz-popup.v1.js"></script>
+</head>
+<body>
+	<style>
+		code {
+			display: block;
+			padding: 15px 20px;
+			background: #eee;
+			white-space: pre;
+			tab-size: 25px;
+		}
+	</style>
+<code>$popup.alert({
+	title: '팝업 제목',
+	content: '팝업 내용',
+	closeEvent: function() {
+		alert('닫기 이벤트');
+	},
+});
+</code>
+	<button id="a" style="height: 500px;">dd</button>
+	<button id="b" style="height: 500px;">dd</button>
+	<button id="d" style="height: 500px;">dd</button>
+	<button id="d" style="height: 500px;">dd</button>
+	<button id="d" style="height: 500px;">dd</button>
+	<button id="d" style="height: 500px;">dd</button>
+	<button id="d" style="height: 500px;">dd</button>
+	<button id="d" style="height: 500px;">dd</button>
+	<button id="d" style="height: 500px;">dd</button>
+	<script>
+		document.querySelector('#a').addEventListener('click', function() {
+			$popup.alert({
+				title: '팝업 제목',
+				content: '팝업 내용',
+				closeEvent: function() {
+					$popup.close();
+					$popup.alert('이렇게 닫기 이벤트에도 호출이 가능함<br>하지만 따로 close 명시가 없을시 무한루프가 발생');
+				},
+			});
+		});
+		document.querySelector('#b').addEventListener('click', function() {
+			$popup.alert('단순 문자열을 넣을경우에도 실행 가능');
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+	height: 50000px;
+}
+body.not-scroll {
+	height: 100%; 
+	overflow: hidden; 
+}
+
+.wbz-popup-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+}
+.wbz-popup-cont {
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 26px 24px;
+	background: #fff;
+	min-width: 300px;
+}
+.wbz-popup-cont.on {
+	display: block;
+}
+.wbz-popup-cont .popup-header {
+	display: flex;
+	justify-content: space-between;
+	align-self: center;
+	padding-bottom: 16px;
+}
+.wbz-popup-cont .popup-header .popup-title {
+	display: block;
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 500;
+}
+.wbz-popup-cont .popup-header .popup-close {
+	cursor: pointer;
+	width: 26px;
+	height: 26px;
+	margin-right: -2px;
+	background: url("../images/common/popup_close.png") no-repeat center center #f55;
+	background-size: 100% auto;
+	border: 0 none;
+	font-size: 0;
+}
+.wbz-popup-cont .popup-cont {
+	padding-top: 16px;
+}
+.wbz-popup-cont .popup-cont .popup-text {
+	max-height: 470px;
+    overflow-y: auto;
+	font-size: 16px;
+    line-height: 20px;
+}
+.wbz-popup-cont .popup-cont .popup-button {
+	margin-top: 36px;
+}
