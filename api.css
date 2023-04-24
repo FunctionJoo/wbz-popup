@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+
+code {
+	display: block;
+	padding: 15px 20px;
+	background: #eee;
+	white-space: pre;
+	tab-size: 25px;
+}

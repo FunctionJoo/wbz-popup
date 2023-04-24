@@ -5,19 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>팝업 라이브러리</title>
+	<link rel="stylesheet" href="./api.css">
 	<link rel="stylesheet" href="./wbz-popup.css">
 	<script src="./wbz-popup.v1.js"></script>
 </head>
 <body>
-	<style>
-		code {
-			display: block;
-			padding: 15px 20px;
-			background: #eee;
-			white-space: pre;
-			tab-size: 25px;
-		}
-	</style>
 <code>$popup.alert({
 	title: '팝업 제목',
 	content: '팝업 내용',
@@ -28,26 +20,56 @@
 </code>
 	<button id="a" style="height: 500px;">dd</button>
 	<button id="b" style="height: 500px;">dd</button>
+	<button id="c" style="height: 500px;">dd</button>
 	<button id="d" style="height: 500px;">dd</button>
 	<button id="d" style="height: 500px;">dd</button>
 	<button id="d" style="height: 500px;">dd</button>
 	<button id="d" style="height: 500px;">dd</button>
 	<button id="d" style="height: 500px;">dd</button>
 	<button id="d" style="height: 500px;">dd</button>
-	<button id="d" style="height: 500px;">dd</button>
+
+	<div class="wbz-popup-cont is-template" id="template-popup">
+		<div class="popup-header">
+			<b class="popup-title">텝플릿 팝업</b>
+			<button class="popup-close popup-close-just" onclick="$popup.close()">close</button>
+		</div>
+		<div class="popup-cont">
+			<div class="popup-text">
+				해당 팝업은 미리 세팅 되어있는 템플릿 팝업입니다.<br>
+				<form>
+					<label class="req">
+						<p class="input-name">이름</p>
+						<input type="text" name="" id="">
+					</label>
+				</form>
+			</div>
+			<div class="popup-button">
+				<button type="button" class="popup-close popup-close-event" onclick="$popup.close()">확인</button>
+			</div>
+		</div>
+	</div>
+
 	<script>
 		document.querySelector('#a').addEventListener('click', function() {
 			$popup.alert({
 				title: '팝업 제목',
 				content: '팝업 내용',
 				closeEvent: function() {
-					$popup.close();
-					$popup.alert('이렇게 닫기 이벤트에도 호출이 가능함<br>하지만 따로 close 명시가 없을시 무한루프가 발생');
+					$popup.alert({
+						title: '팝업 제목222',
+						content: '팝업 내용2222',
+						closeEvent: function() {
+							$popup.closeAll();
+						},
+					});
 				},
 			});
 		});
 		document.querySelector('#b').addEventListener('click', function() {
 			$popup.alert('단순 문자열을 넣을경우에도 실행 가능');
+		});
+		document.querySelector('#c').addEventListener('click', function() {
+			$popup.template('#template-popup');
 		});
 	</script>
 </body>
