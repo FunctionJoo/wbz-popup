@@ -2,7 +2,7 @@ const $popup = {
 	// 변수
 	// z-index 조절 필요시 값 변경
 	scrollY: 0,
-	zIndex: 10000,
+	zIndex: 10000000,
 	count: 0,
 	activePopup: [],
 	$popbg: `<div class="wbz-popup-bg" id="wbz-popup-bg"></div>`,
